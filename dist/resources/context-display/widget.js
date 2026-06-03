@@ -1,12 +1,22 @@
-import { jsx, jsxs } from "react/jsx-runtime";
+// resources/context-display/widget.tsx
 import {
   McpUseProvider,
   useWidget
 } from "mcp-use/react";
 import { useMemo } from "react";
-import "../styles.css";
-import { propSchema } from "./types";
-const widgetMetadata = {
+
+// resources/context-display/types.ts
+import { z } from "zod";
+var propSchema = z.object({
+  greeting: z.string(),
+  timestamp: z.string(),
+  sampleNumbers: z.array(z.number()),
+  sampleDates: z.array(z.string())
+});
+
+// resources/context-display/widget.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
+var widgetMetadata = {
   description: "Host context inspector \u2014 locale, timezone, layout, device",
   props: propSchema,
   exposeAsTool: false,
@@ -66,7 +76,7 @@ function SafeAreaBox({
     /* @__PURE__ */ jsx("span", { className: "z-10 text-gray-400 dark:text-gray-500", children: "safe area" })
   ] });
 }
-const ContextDisplay = () => {
+var ContextDisplay = () => {
   const {
     props,
     isPending,

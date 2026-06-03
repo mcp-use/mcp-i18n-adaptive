@@ -1,5 +1,6 @@
+// resources/context-display/types.ts
 import { z } from "zod";
-const propSchema = z.object({
+var propSchema = z.object({
   greeting: z.string(),
   timestamp: z.string(),
   sampleNumbers: z.array(z.number()),

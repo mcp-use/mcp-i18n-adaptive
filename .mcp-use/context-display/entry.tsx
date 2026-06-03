@@ -1,15 +1,10 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
-import Component from '/Users/e.t./Projects/mcp-use/mcp-servers/templates/i18n-adaptive/resources/context-display/widget.tsx'
+import Component from '/private/tmp/mcp-template-bumps/mcp-i18n-adaptive/resources/context-display/widget.tsx'
 
 const container = document.getElementById('widget-root')
 if (container && Component) {
   const root = createRoot(container)
   root.render(<Component />)
-  
-  // Signal to parent that widget has mounted (after a brief delay for initial render)
-  setTimeout(() => {
-    window.parent.postMessage({ type: 'mcp-inspector:widget:ready' }, '*')
-  }, 100)
 }

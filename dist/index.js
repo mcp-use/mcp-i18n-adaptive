@@ -1,6 +1,7 @@
+// index.ts
 import { MCPServer, text, widget, object } from "mcp-use/server";
 import { z } from "zod";
-const server = new MCPServer({
+var server = new MCPServer({
   name: "i18n-adaptive",
   title: "i18n Adaptive",
   version: "1.0.0",
